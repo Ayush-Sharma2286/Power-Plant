@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireless EV Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>***Wireless EV Portal***</h1>
+        <h2>Rate Chart (₹ per Percent)</h2>
+        <table id="rateChart">
+            <thead>
+                <tr>
+                    <th>Consumption Range(in Percent)</th>
+                    <th>Rate (₹ per Percent)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be populated dynamically -->
+            </tbody>
+        </table>
+
+        <form id="chargingForm">
+            <label for="units">Units Consumed (Percent):</label>
+            <input type="number" id="units" min="0" required placeholder="Enter consumption percentage">
+
+            <button type="button" id="calculateButton">Calculate Cost</button>
+            <button id="reset">Reset</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+    <center>
+    <h2>Payment Options</h2>
+        <div id="paymentSection">
+            <h1 style="color: white;">Select a Payment Method</h1>
+            <form id="paymentForm">
+                <select id="paymentMode" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="upi">UPI</option>
+                    <option value="cash">Cash</option>
+                    <option value="account">Bank Account</option>
+                </select>
+
+                <div id="upiSection" class="paymentDetails" style="display: none;">
+                    <label for="upiId">UPI ID:</label>
+                    <input type="text" id="upiId" placeholder="Enter UPI ID">
+                    <p><strong>Scan QR Code:</strong></p>
+                    <img src="QR.jpg" alt="QR Code" id="qrCode" style="width: 150px; height: 150px;">
+                </div>
+
+                <div id="cashSection" class="paymentDetails" style="display: none;">
+                    <p>Please pay in cash at the counter.</p>
+                </div>
+
+                <div id="accountSection" class="paymentDetails" style="display: none;">
+                    <label for="accountNumber">Account Number:</label>
+                    <input type="text" id="accountNumber" placeholder="Enter account number">
+                    <label for="ifscCode">IFSC Code:</label>
+                    <input type="text" id="ifscCode" placeholder="Enter IFSC code">
+                </div>
+
+                <button type="submit" id="payButton">Pay Now</button>
+            </form>
+        </div>
+    </div>
+    </center>
+    <script src="script.js"></script>
+</body>
+</html>
